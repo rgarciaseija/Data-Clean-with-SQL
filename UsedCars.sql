@@ -1,4 +1,4 @@
--- Exploring tables of the database (OK)
+-- Exploring tables of the database 
 
 SELECT *
 FROM [Portfolio Project].dbo.Price;
