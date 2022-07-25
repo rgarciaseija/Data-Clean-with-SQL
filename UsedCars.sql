@@ -202,18 +202,20 @@ Selecting Maruti's car brand, fixing the km driven to 100000km and getting the s
 we can see that the most impactful factor in the price of a car is the cars' year, but also the State 
 is relevant, for example, if we compare Sales_ID = 5877 (Florida) and Sales_ID = 6845 (Massachusetts), 
 we can see that the cars' attributes are all the same (km driven, torque, qty of owners, and car year)
-but the selling price's difference is considerable (39537[R$] vs 31739[R$]), so this is a variable that shifts according to each State
+but the selling's price difference is considerable (39537[R$] vs 31739[R$]), so this is a variable that shifts according to each State
 The number of owners is also impactful, but as we can see the priority of relevance of the attributes seems to be: Cars' Year > State > Qty of Owners*/
 
 
 -- Creating some views for later visualization
 
+-- View 1
 CREATE VIEW TOTAL_BRANDS_CAR AS
 SELECT name AS Brand,
        COUNT(sold) AS TOTAL_CAR_NUMBER
 FROM [Portfolio Project].dbo.Price
 GROUP BY name 
 
+-- View 2
 CREATE VIEW TOTAL_SOLD_NOTSOLD AS
 SELECT t2.year,
        COUNT(t1.sold) AS TOTAL_CAR_NUMBER,
@@ -229,7 +231,7 @@ FROM [Portfolio Project].dbo.Price t1
 INNER JOIN [Portfolio Project].dbo.Car_Detail t2 ON t1.Sales_ID = t2.Sales_ID
 GROUP BY t2.year
 
--- View 1
+-- View 3
 CREATE VIEW SOLD_NOTSOLD_PERCENTAGE AS
 SELECT t2.year,
        COUNT(t1.sold) AS TOTAL_CAR_NUMBER,
@@ -245,7 +247,7 @@ FROM [Portfolio Project].dbo.Price t1
 INNER JOIN [Portfolio Project].dbo.Car_Detail t2 ON t1.Sales_ID = t2.Sales_ID
 GROUP BY t2.year
 
--- View 2
+-- View 4
 CREATE VIEW STATE_REVENUE_AVGTICKET AS
 SELECT t2.[State or Province],
        COUNT(t1.name) AS Qty,
@@ -256,7 +258,7 @@ INNER JOIN [Portfolio Project].dbo.Car_Region t2 ON t1.Sales_ID = t2.Sales_ID
 WHERE t1.sold = 'Y'
 GROUP BY t2.[State or Province]
 
--- View 3
+-- View 5
 CREATE VIEW NY_STATE_BRANDS AS
 SELECT t1.name AS BRAND,
        t2.[State or Province] AS STATE,
@@ -269,7 +271,7 @@ WHERE t2.[State or Province] = 'New York'
 GROUP BY t1.name,
          t2.[State or Province];
 
--- View 4
+-- View 6
 CREATE VIEW NY_CITIES_REVENUE AS
 SELECT t2.City,
        SUM(t1.selling_price)*0.069 AS 'CAR_REVENUE(R$)',
@@ -280,7 +282,7 @@ WHERE t2.[State or Province] = 'New York'
   AND t1.sold = 'Y'
 GROUP BY t2.City;
 
--- View 5
+-- View 7
 CREATE VIEW VARIABLES_ON_CARS_PRICE AS
 SELECT t1.Sales_ID,
        t1.name,
