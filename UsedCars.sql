@@ -303,7 +303,7 @@ WHERE km_driven = 100000
 
 -- View 8
 
--- Total, sold and not sold cars, per brand 
+-- Total, sold and not sold cars (qty and percentage), per brand 
 SELECT t1.name AS BRAND,
        COUNT(t1.sold) AS TOTAL_CAR_NUMBER,
        COUNT(CASE
@@ -313,10 +313,17 @@ SELECT t1.name AS BRAND,
        COUNT(CASE
                  WHEN t1.sold = 'N' THEN t1.sold
                  ELSE NULL
-             END) AS NOTSOLD_CAR_NUMBER
+             END) AS NOTSOLD_CAR_NUMBER,
+       COUNT(CASE
+                 WHEN t1.sold = 'Y' THEN t1.sold
+                 ELSE NULL
+             END)*100/COUNT(t1.sold) AS SOLD_PERCENTAGE,
+       COUNT(CASE
+                 WHEN t1.sold = 'N' THEN t1.sold
+                 ELSE NULL
+             END)*100/COUNT(t1.sold) AS NOT_SOLD_PERCENTAGE
 FROM [Portfolio Project].dbo.Price t1
-GROUP BY t1.name;
-
+GROUP BY t1.name
 
 
 
