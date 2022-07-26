@@ -301,6 +301,22 @@ WHERE km_driven = 100000
   AND t1.name = 'Maruti'
   AND t2.torque = '190Nm@ 2000rpm';
 
+-- View 8
+
+-- Total, sold and not sold cars, per brand 
+SELECT t1.name AS BRAND,
+       COUNT(t1.sold) AS TOTAL_CAR_NUMBER,
+       COUNT(CASE
+                 WHEN t1.sold = 'Y' THEN t1.sold
+                 ELSE NULL
+             END) AS SOLD_CAR_NUMBER,
+       COUNT(CASE
+                 WHEN t1.sold = 'N' THEN t1.sold
+                 ELSE NULL
+             END) AS NOTSOLD_CAR_NUMBER
+FROM [Portfolio Project].dbo.Price t1
+GROUP BY t1.name;
+
 
 
 
