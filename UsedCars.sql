@@ -1,5 +1,5 @@
 -- P.S: The views created for visualization in Tableau Public that were displayed in the Medium Article: "Used Cars Market" are in the section two.
--- P.S(2): The first session starts at line 7 and second session starts at line 218.
+-- P.S(2): The first section starts at line 7 and second section starts at line 218.
 
 
 
