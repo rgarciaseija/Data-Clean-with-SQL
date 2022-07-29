@@ -51,7 +51,7 @@ GROUP BY name,
          sold
 ORDER BY 2 DESC;
 
--- Checking Top5 of most sold cars
+-- Checking Top5 best sold cars
 SELECT name AS Brand,
        COUNT(sold) AS COUNT
 FROM [Portfolio Project].dbo.Price
@@ -71,7 +71,7 @@ GROUP BY name,
          sold
 ORDER BY 2 DESC;
 
--- Checking TOP5 of less sold cars in all period 
+-- Checking TOP5 worst sold cars in all period 
 SELECT name AS Brand,
        COUNT(sold) AS COUNT
 FROM [Portfolio Project].dbo.Price
@@ -158,7 +158,7 @@ GROUP BY t1.name,
          t2.[State or Province]
 ORDER BY 3 DESC;
 
--- From the previous query, we can see that Maruti was the TOP1 sold brand in New York State, selling 96 cars with a revenue of R$2767175,931
+-- From the previous query, we can see that Maruti was the TOP1 best sold brand in New York State, selling 96 cars with a revenue of R$2767175,931
 
 -- Now, let's take a look more closely to New York State, analyzing which City has the highest used cars' revenues
 SELECT t2.City,
