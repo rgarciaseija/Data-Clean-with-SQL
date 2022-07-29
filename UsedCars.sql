@@ -1,4 +1,11 @@
--- Exploring tables of the database 
+-- P.S: The views created for visualization in Tableau Public that were displayed in the Medium Article: "Used Cars Market" are in the section two.
+-- P.S(2): The first session starts at line 7 and second session starts at line 218.
+
+
+
+
+-- SECTION ONE - Navegating into the database
+-- Exploring tables of the dataset
 
 SELECT *
 FROM [Portfolio Project].dbo.Price;
@@ -23,19 +30,19 @@ FROM [Portfolio Project].dbo.Torque;
 
 
 
--- Checking cars' brands in the dataset 
+-- Checking cars' brands 
 SELECT DISTINCT name AS BRAND
 FROM [Portfolio Project].dbo.Price
 ORDER BY 1;
 
--- Checking total cars' quantity per brand 
+-- Checking quantity of cars per brand  - Checking 
 SELECT name AS BRAND,
        COUNT(sold) AS TOTAL_CAR_NUMBER
 FROM [Portfolio Project].dbo.Price
 GROUP BY name
 ORDER BY 2 DESC;
 
--- Checking the quantity of sold cars per brand 
+-- Checking quantity of sold cars per brand 
 SELECT name AS Brand,
        COUNT(sold) AS SOLD_CARS
 FROM [Portfolio Project].dbo.Price
@@ -44,7 +51,7 @@ GROUP BY name,
          sold
 ORDER BY 2 DESC;
 
--- Checking Top5 most sold cars in all period 
+-- Checking Top5 of most sold cars
 SELECT name AS Brand,
        COUNT(sold) AS COUNT
 FROM [Portfolio Project].dbo.Price
@@ -64,7 +71,7 @@ GROUP BY name,
          sold
 ORDER BY 2 DESC;
 
--- Checking TOP5 less sold cars in all period 
+-- Checking TOP5 of less sold cars in all period 
 SELECT name AS Brand,
        COUNT(sold) AS COUNT
 FROM [Portfolio Project].dbo.Price
@@ -75,7 +82,7 @@ ORDER BY 2 ASC
 OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;
 
 
--- Checking cars' total, sold, and not sold quantity per cars' year
+-- Checking total, sold, and not sold quantity of cars per car year
 SELECT t2.year,
        COUNT(t1.sold) AS TOTAL_CAR_NUMBER,
        COUNT(CASE
@@ -92,7 +99,7 @@ GROUP BY t2.year
 ORDER BY t2.year
 
 
--- Using Common Table Expression[CTE] to get the percentage of sold and not sold used car per cars' year
+-- Using Common Table Expression[CTE] to get the percentage of sold and not sold car, per cars' year
 WITH PERCENTAGE (YEAR, TOTAL_CAR_NUMBER, SOLD_CAR_NUMBER, NOTSOLD_CAR_NUMBER) AS
   (SELECT t2.year,
           COUNT(t1.sold) AS TOTAL_CAR_NUMBER,
@@ -122,7 +129,7 @@ ORDER BY YEAR
 
 
 
--- Total revenue and average ticket from sold cars per region 
+-- Total revenue and average ticket from sold cars, per region 
 SELECT t2.[State or Province],
        COUNT(t1.name) AS Qty,
        SUM(t1.selling_price)*0.069 AS 'REVENUE(R$)',
@@ -134,7 +141,7 @@ GROUP BY t2.[State or Province]
 ORDER BY 3 DESC
 
 /* According to the query above:
- PS1: Note that even though some States sold more car quantity, not always they have the highest revenue compared to the states that had sold less car quantity. (Example: Ilinois and Texas)
+ PS1: Note that even though some States sold more qty of cars, not always they have the highest revenue compared to the states that had sold less qty. (Example: Ilinois and Texas)
  PS2: Note that even though some States had more revenue, not always they have the highest average ticket compared to the states that had less revenues. (Example: Ilinois and Florida)*/
 
 
@@ -164,7 +171,7 @@ WHERE t2.[State or Province] = 'New York'
 GROUP BY t2.City
 ORDER BY 3 DESC;
 
--- Analyzing the previous query result, we can see that New York City is the location that had the highest revenues from used cars in New York State
+-- Analyzing the previous query result, we can see that New York City is the location that had the highest revenue from used cars in New York State
 
 
 -- Now, let's take a look at how kilometer driven influences in the selling price of a car
@@ -206,8 +213,9 @@ but the selling's price difference is considerable (39537[R$] vs 31739[R$]), so 
 The number of owners is also impactful, but as we can see the priority of relevance of the attributes seems to be: Cars' Year > State > Qty of Owners*/
 
 
--- Creating some views for later visualization
 
+
+-- SECTION TWO: Views for visualization in Tableau Public
 -- View 1
 CREATE VIEW TOTAL_BRANDS_CAR AS
 SELECT name AS Brand,
