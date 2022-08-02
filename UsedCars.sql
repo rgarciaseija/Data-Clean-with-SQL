@@ -1,4 +1,4 @@
-Tables of the dataset: 
+-- Tables of the dataset: 
 
 SELECT *
 FROM [Portfolio Project].dbo.Price;
