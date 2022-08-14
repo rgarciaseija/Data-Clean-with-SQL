@@ -4,7 +4,7 @@
 
 - 👀 I’m interested in **technology** and all the new features that arise from this area. Especially when it's about Data Science topics.
 
-- 🌱 I’m currently learning topics related to **Data Science/Analytics** field, focusing on using **SQL/Python/R languages** to study everything I can about Data.
+- 🌱 I’m currently learning topics related to **Data Science/Analytics** field, focusing on using **SQL/Python/R languages** to do great projects.
 
 - 💞️ I’m looking to **collaborate on great Data Science/Analytics projects** in the future, using my experience and skills to **help people/companies solve different kind of problems.**
 
