@@ -1,6 +1,6 @@
 # Portfolio_Projects
 
-- 👋 Hi! I’m Vitor Xavier Guilherme, 27 years old, a graduated Civil Engineer. I am currently **working as a Business Intelligence Consultant, in Brazil.** 
+- 👋 Hi! I’m Vitor Xavier Guilherme, a graduated Civil Engineer. I am currently **working as a Business Intelligence Consultant, in Brazil.** 
 
 - 👀 I’m interested in **technology** and all the new features that arise from this area. Especially when it's about Data Science topics.
 
