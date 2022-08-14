@@ -6,7 +6,7 @@
 
 - 🌱 I’m currently learning topics related to **Data Science/Analytics** field, focusing on using **SQL/Python/R languages** to do great projects.
 
-- 💞️ I’m looking to **collaborate on great Data Science/Analytics projects** in the future, using my experience and skills to **help people/companies solve different kind of problems.**
+- 💞️ I’m looking to **collaborate on great Data Science/Analytics projects** in the future, using my experiences and skills to **help people/companies solve different kind of problems.**
 
 - 📫 You can reach me at **Linkedin, Medium, Instagram or Spotify.** I will let the links to my profiles below. 
 
