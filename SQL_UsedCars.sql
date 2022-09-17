@@ -110,32 +110,6 @@ OFFSET 0 ROWS FETCH NEXT 5 ROWS ONLY;
 
 
 
--- View 7
--- Checking which variables influences in used cars' selling price
-CREATE VIEW VARIABLES_ON_CARS_PRICE AS
-SELECT t1.Sales_ID,
-       t1.name,
-       t2.torque,
-       t3.owner,
-       t3.year,
-       t4.[State or Province],
-       t1.km_driven,
-       t1.selling_price*0.069 AS selling_price,
-       t4.City
-FROM [Portfolio Project].dbo.Price t1
-INNER JOIN [Portfolio Project].dbo.Torque t2 ON t1.Sales_ID = t2.Sales_ID
-INNER JOIN [Portfolio Project].dbo.Car_Detail t3 ON t3.Sales_ID = t1.Sales_ID
-INNER JOIN [Portfolio Project].dbo.Car_Region t4 ON t4.Sales_ID = t1.Sales_ID
-WHERE km_driven = 100000
-  AND t1.name = 'Maruti'
-  AND t2.torque = '190Nm@ 2000rpm'
-  AND t3.owner = 'Second_Owner'
-ORDER BY t1.selling_price DESC;
-
-
-
-
-
 
 
 
