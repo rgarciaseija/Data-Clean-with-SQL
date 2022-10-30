@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 
 
-
+# Url function
 def get_url(search_term):
     template = 'https://www.cars.com/shopping/results/?stock_type=new&makes%5B%5D={}&models%5B%5D=&list_price_max=&maximum_distance=all&zip='
     search_term = search_term.replace(' ', '_')
@@ -41,6 +41,9 @@ def extract_record(item):
     result = (url, price, car, review)
     
     return result
+
+
+
 
 # Main Function
 def main(search_term):
